@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FUN 趣选 · 感官测量</title>
+<style>
+:root{--paper:#F7F5F0;--ink:#111110;--yellow:#FFD400;--gray:#8A8578;--line:#DAD5C9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.topbar{border-bottom:1px solid var(--ink);font-size:11px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:44px}
+.topbar b{font-weight:700;letter-spacing:.08em}
+header.hero{padding:64px 0 40px;border-bottom:1px solid var(--ink)}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+h1{font-size:clamp(44px,5.4vw,76px);line-height:1.02;font-weight:800;letter-spacing:-.02em;margin:18px 0 24px}
+h1 em{font-style:normal;background:var(--yellow);padding:0 6px}
+.lead{font-size:16px;max-width:440px;color:#33322E}
+.links{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+.links a{font-size:14px;font-weight:700;border-bottom:2px solid var(--yellow);padding-bottom:2px}
+.caption{margin-top:22px;font-size:12px;color:var(--gray);max-width:460px}
+.plot{width:100%;height:auto;display:block}
+.plot text{font-family:ui-monospace,Menlo,monospace;font-size:10px;fill:var(--gray);letter-spacing:.08em}
+.plot .axis{stroke:var(--line);stroke-width:1}
+.plot .dot{fill:var(--ink);opacity:0;animation:pop .5s forwards}
+.plot .zone{fill:none;stroke:var(--yellow);stroke-width:1.5;opacity:0;animation:pop .8s .3s forwards}
+.plot .match{stroke:var(--ink);stroke-width:.8;opacity:0;stroke-dasharray:3 3;animation:fade .8s .8s forwards}
+.plot .label{font-size:9px;fill:var(--ink);opacity:0;animation:fade .8s 1.2s forwards}
+@keyframes pop{to{opacity:1}}
+@keyframes fade{to{opacity:.65}}
+.strip{border-bottom:1px solid var(--ink)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:22px 20px;border-right:1px solid var(--line)}
+.stat:first-child{padding-left:0}
+.stat:last-child{border-right:none}
+.stat b{display:block;font-family:ui-monospace,Menlo,monospace;font-size:28px;font-weight:600;letter-spacing:-.02em}
+.stat span{font-size:12px;color:var(--gray)}
+section.block{padding:56px 0;border-bottom:1px solid var(--ink)}
+.sec-head{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline}
+.sec-head h2{font-size:38px;line-height:1.15;font-weight:800;letter-spacing:-.01em}
+.rows{margin-top:34px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:120px 1fr 220px;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row .num{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--gray)}
+.row h3{font-size:19px;font-weight:700}
+.row p{font-size:13.5px;color:#4A4842}
+.row .tag{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.1em;color:var(--gray);text-align:right}
+footer{padding:40px 0 80px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--gray)}
+@media(max-width:900px){
+  .hero .grid{grid-template-columns:1fr;gap:28px}
+  .strip .wrap{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:none}
+  .stat{padding-left:0}
+  .sec-head,.row{grid-template-columns:1fr;gap:6px}
+  .row .tag{text-align:left}
+  .row{padding:16px 0}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <b>FUN 趣选 — 感官测量与匹配</b>
+    <span class="mono">Beijing · Taipei · Singapore</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="mono">Sensory measurement · Est. 2008</div>
+        <h1>把风味<br>变成<em>可比较</em><br>的数据</h1>
+        <p class="lead">我们不写"匠心""风土"。我们把一杯咖啡拆成可测量的维度，再用同一套尺子，量人喜欢什么。</p>
+        <div class="links">
+          <a href="#measure">看我们怎么量 →</a>
+          <a href="#match">豆子怎么找到人 →</a>
+        </div>
+        <p class="caption">左图：每个黑点是我们的一个样品批次，横轴酸度、纵轴醇厚度；黄圈是客户偏好区域。匹配，就是把点放进圈里。</p>
+      </div>
+      <div>
+        <svg class="plot" viewBox="0 0 560 520" role="img" aria-label="风味散点与偏好匹配示意">
+          <line class="axis" x1="70" y1="20" x2="70" y2="450"/>
+          <line class="axis" x1="70" y1="450" x2="530" y2="450"/>
+          <text x="16" y="30">BODY</text>
+          <text x="470" y="478">ACIDITY</text>
+          <g stroke="#E7E2D6" stroke-width="1">
+            <line x1="70" y1="100" x2="530" y2="100"/><line x1="70" y1="180" x2="530" y2="180"/>
+            <line x1="70" y1="260" x2="530" y2="260"/><line x1="70" y1="340" x2="530" y2="340"/>
+            <line x1="160" y1="20" x2="160" y2="450"/><line x1="250" y1="20" x2="250" y2="450"/>
+            <line x1="340" y1="20" x2="340" y2="450"/><line x1="430" y1="20" x2="430" y2="450"/>
+          </g>
+          <circle class="zone" cx="330" cy="150" r="62"/>
+          <circle class="zone" cx="180" cy="320" r="48"/>
+          <circle class="zone" cx="440" cy="300" r="40"/>
+          <g class="match">
+            <line x1="330" y1="150" x2="322" y2="138"/><line x1="330" y1="150" x2="352" y2="170"/>
+            <line x1="330" y1="150" x2="300" y2="168"/><line x1="180" y1="320" x2="172" y2="330"/>
+            <line x1="180" y1="320" x2="196" y2="300"/><line x1="440" y1="300" x2="430" y2="312"/>
+          </g>
+          <g>
+            <circle class="dot" cx="322" cy="138" r="2.6"/><circle class="dot" cx="352" cy="170" r="2.6"/>
+            <circle class="dot" cx="300" cy="168" r="2.6"/><circle class="dot" cx="172" cy="330" r="2.6"/>
+            <circle class="dot" cx="196" cy="300" r="2.6"/><circle class="dot" cx="430" cy="312" r="2.6"/>
+            <circle class="dot" cx="120" cy="120" r="2.2"/><circle class="dot" cx="150" cy="200" r="2.2"/>
+            <circle class="dot" cx="110" cy="260" r="2.2"/><circle class="dot" cx="210" cy="90" r="2.2"/>
+            <circle class="dot" cx="240" cy="150" r="2.2"/><circle class="dot" cx="260" cy="220" r="2.2"/>
+            <circle class="dot" cx="280" cy="330" r="2.2"/><circle class="dot" cx="320" cy="250" r="2.2"/>
+            <circle class="dot" cx="360" cy="120" r="2.2"/><circle class="dot" cx="390" cy="200" r="2.2"/>
+            <circle class="dot" cx="410" cy="90" r="2.2"/><circle class="dot" cx="460" cy="160" r="2.2"/>
+            <circle class="dot" cx="480" cy="240" r="2.2"/><circle class="dot" cx="450" cy="380" r="2.2"/>
+            <circle class="dot" cx="380" cy="400" r="2.2"/><circle class="dot" cx="300" cy="410" r="2.2"/>
+            <circle class="dot" cx="240" cy="380" r="2.2"/><circle class="dot" cx="140" cy="390" r="2.2"/>
+            <circle class="dot" cx="100" cy="340" r="2.2"/><circle class="dot" cx="200" cy="250" r="2.2"/>
+            <circle class="dot" cx="250" cy="110" r="2.2"/><circle class="dot" cx="300" cy="70" r="2.2"/>
+            <circle class="dot" cx="380" cy="60" r="2.2"/><circle class="dot" cx="430" cy="130" r="2.2"/>
+            <circle class="dot" cx="490" cy="100" r="2.2"/><circle class="dot" cx="510" cy="200" r="2.2"/>
+            <circle class="dot" cx="500" cy="320" r="2.2"/><circle class="dot" cx="470" cy="420" r="2.2"/>
+            <circle class="dot" cx="330" cy="200" r="2.2"/><circle class="dot" cx="180" cy="160" r="2.2"/>
+          </g>
+          <text class="label" x="344" y="120">match 0.86</text>
+          <text class="label" x="196" y="286">match 0.81</text>
+          <text class="label" x="452" y="288">match 0.74</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><b>1.836 亿</b><span>2025/26 全球产量（袋）· ICO 2026-09</span></div>
+    <div class="stat"><b>5%</b><span>精品咖啡占比 · 其余是大宗</span></div>
+    <div class="stat"><b>2 套</b><span>评估模型：AI 初筛 + 专家复核</span></div>
+    <div class="stat"><b>18 年</b><span>产区与感官经验</span></div>
+  </div>
+</div>
+
+<section class="block" id="measure">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono">01 / Measure</div>
+      <h2>先定义"好"，再谈别的</h2>
+    </div>
+    <div class="rows">
+      <div class="row"><div class="num">M-01</div><h3>感官维度</h3><p>酸、甜、苦、醇厚，各 0–10 分；风味标签按 SCA 轮盘，不下"好喝"这种结论。</p><div class="tag">SOURCE: SCA / CQI</div></div>
+      <div class="row"><div class="num">M-02</div><h3>双模型校准</h3><p>AI 先给出评分与画像，专家复核差异；差异本身就是数据。</p><div class="tag">METHOD: DUAL-MODEL</div></div>
+      <div class="row"><div class="num">M-03</div><h3>可追溯</h3><p>每份报告挂批次号与检测日期；没有依据的数字不写。</p><div class="tag">POLICY: NO UNTRACED DATA</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="match">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono">02 / Match</div>
+      <h2>豆子找到人，人找到豆子</h2>
+    </div>
+    <div class="rows">
+      <div class="row"><div class="num">X-01</div><h3>豆子侧</h3><p>每个批次有风味向量、价格带、库存与交付期；像不像别人，用距离算，不靠形容词。</p><div class="tag">OBJECT: LOT</div></div>
+      <div class="row"><div class="num">X-02</div><h3>人侧</h3><p>每个客户有偏好向量与场景；同意范围内的数据才进入匹配。</p><div class="tag">OBJECT: CUSTOMER</div></div>
+      <div class="row"><div class="num">X-03</div><h3>匹配</h3><p>硬约束过滤，再算相似度，最后给一句可解释的理由。</p><div class="tag">RULE: FILTER → RANK → EXPLAIN</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 FUN 趣选 · FCIA</span>
+    <span class="mono">CONCEPT V0.2 · 2026-11-12 · NOT FINAL</span>
+  </div>
+</footer>
+</body>
+</html>
