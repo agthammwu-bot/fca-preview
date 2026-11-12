@@ -3,60 +3,107 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FUN 趣选 · 感官测量</title>
+<title>FUN 趣选 · 人喝，机器量</title>
+<meta name="description" content="2023 年成立于上海。FUN 趣选把杯测师的判断与仪器的测量放在同一批样品上，让风味变成可比较的数据。">
 <style>
-:root{--paper:#F7F5F0;--ink:#111110;--yellow:#FFD400;--gray:#8A8578;--line:#DAD5C9}
+:root{--paper:#F7F5F0;--ink:#111110;--yellow:#FFD400;--gray:#8A8578;--line:#DAD5C9;--soft:#EFEBE1}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--paper);color:var(--ink);font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;line-height:1.6}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;line-height:1.65}
 a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 .topbar{border-bottom:1px solid var(--ink);font-size:11px}
-.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:44px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:44px;gap:16px}
 .topbar b{font-weight:700;letter-spacing:.08em}
-header.hero{padding:64px 0 40px;border-bottom:1px solid var(--ink)}
-.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-h1{font-size:clamp(44px,5.4vw,76px);line-height:1.02;font-weight:800;letter-spacing:-.02em;margin:18px 0 24px}
+.hero{padding:64px 0 44px;border-bottom:1px solid var(--ink)}
+.hero .grid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+h1{font-size:clamp(42px,5.2vw,74px);line-height:1.04;font-weight:800;letter-spacing:-.02em;margin:16px 0 22px}
 h1 em{font-style:normal;background:var(--yellow);padding:0 6px}
-.lead{font-size:16px;max-width:440px;color:#33322E}
-.links{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+.lead{font-size:16px;max-width:460px;color:#33322E}
+.links{display:flex;gap:26px;margin-top:28px;flex-wrap:wrap}
 .links a{font-size:14px;font-weight:700;border-bottom:2px solid var(--yellow);padding-bottom:2px}
-.caption{margin-top:22px;font-size:12px;color:var(--gray);max-width:460px}
+.caption{margin-top:22px;font-size:12px;color:var(--gray);max-width:470px;line-height:1.55}
 .plot{width:100%;height:auto;display:block}
 .plot text{font-family:ui-monospace,Menlo,monospace;font-size:10px;fill:var(--gray);letter-spacing:.08em}
 .plot .axis{stroke:var(--line);stroke-width:1}
 .plot .dot{fill:var(--ink);opacity:0;animation:pop .5s forwards}
-.plot .zone{fill:none;stroke:var(--yellow);stroke-width:1.5;opacity:0;animation:pop .8s .3s forwards}
+.plot .zone{fill:none;stroke:var(--yellow);stroke-width:1.6;opacity:0;animation:pop .8s .3s forwards}
 .plot .match{stroke:var(--ink);stroke-width:.8;opacity:0;stroke-dasharray:3 3;animation:fade .8s .8s forwards}
-.plot .label{font-size:9px;fill:var(--ink);opacity:0;animation:fade .8s 1.2s forwards}
+.plot .label{font-size:9.5px;fill:var(--ink);opacity:0;animation:fade .8s 1.1s forwards}
 @keyframes pop{to{opacity:1}}
-@keyframes fade{to{opacity:.65}}
+@keyframes fade{to{opacity:.7}}
 .strip{border-bottom:1px solid var(--ink)}
 .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
 .stat{padding:22px 20px;border-right:1px solid var(--line)}
 .stat:first-child{padding-left:0}
 .stat:last-child{border-right:none}
-.stat b{display:block;font-family:ui-monospace,Menlo,monospace;font-size:28px;font-weight:600;letter-spacing:-.02em}
+.stat b{display:block;font-family:ui-monospace,Menlo,monospace;font-size:27px;font-weight:600;letter-spacing:-.02em}
 .stat span{font-size:12px;color:var(--gray)}
 section.block{padding:56px 0;border-bottom:1px solid var(--ink)}
 .sec-head{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline}
-.sec-head h2{font-size:38px;line-height:1.15;font-weight:800;letter-spacing:-.01em}
-.rows{margin-top:34px;border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:88px 1.05fr 1.35fr 210px;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.row .num{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--gray)}
-.row h3{font-size:19px;font-weight:700}
+.sec-head h2{font-size:38px;line-height:1.18;font-weight:800;letter-spacing:-.01em}
+.rows{margin-top:32px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:76px 1fr 1.2fr 190px;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row .num{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--gray);letter-spacing:.08em}
+.row h3{font-size:18px;font-weight:700}
 .row p{font-size:13.5px;color:#4A4842}
 .row .tag{font-family:ui-monospace,Menlo,monospace;font-size:10px;line-height:1.5;letter-spacing:.1em;color:var(--gray);text-align:right}
-footer{padding:40px 0 80px}
+table.case{width:100%;border-collapse:collapse;margin-top:30px;font-size:13.5px}
+table.case th{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;color:var(--gray);text-align:left;padding:0 12px 10px 0;border-bottom:1px solid var(--ink);font-weight:400}
+table.case td{padding:14px 12px 14px 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.case td:first-child{font-weight:700;font-size:15px}
+.same{color:#2E7D32;font-weight:700}
+.diff{background:var(--yellow);font-weight:700;padding:0 4px}
+.note{font-size:12px;color:var(--gray);margin-top:14px;max-width:720px}
+.photos{display:grid;grid-template-columns:1.1fr 1.15fr .95fr;gap:10px;margin-top:30px;height:360px}
+.ph{position:relative;overflow:hidden;background:var(--soft)}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;background:rgba(17,17,16,.72);color:#fff;font-size:10px;padding:6px 8px;line-height:1.4}
+.ph.tall{grid-row:span 1}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:30px;border-top:1px solid var(--ink)}
+.split>div{padding:22px 24px 8px 0;border-right:1px solid var(--line)}
+.split>div:last-child{border-right:none;padding-left:24px}
+.split h3{font-size:16px;margin-bottom:8px}
+.split li{font-size:13.5px;color:#4A4842;margin:0 0 6px 16px}
+.chain{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:32px}
+.step{border-top:2px solid var(--ink);padding-top:12px}
+.step b{display:block;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--gray);letter-spacing:.1em;margin-bottom:4px}
+.step h4{font-size:15px;margin-bottom:4px}
+.step p{font-size:11.5px;color:var(--gray)}
+.contact{background:var(--ink);color:#fff;padding:60px 0}
+.contact .mono{color:#8F8B80}
+.contact h2{color:#fff;font-size:38px;margin:10px 0 16px}
+.contact p{color:#BDBDBD;font-size:15px;max-width:520px}
+.contact .cl{display:flex;gap:28px;margin-top:26px;font-size:13px;color:#BDBDBD;flex-wrap:wrap}
+.contact .cl b{color:var(--yellow);font-weight:600}
+footer{padding:34px 0 70px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--gray)}
-@media(max-width:900px){
-  .hero .grid{grid-template-columns:1fr;gap:28px}
+@media(max-width:980px){
+  .hero .grid{grid-template-columns:1fr;gap:30px}
   .strip .wrap{grid-template-columns:1fr 1fr}
   .stat:nth-child(2){border-right:none}
   .stat{padding-left:0}
-  .sec-head,.row{grid-template-columns:1fr;gap:6px}
-  .row .tag{text-align:left}
-  .row{padding:16px 0}
+  .sec-head{grid-template-columns:1fr;gap:6px}
+  .row{grid-template-columns:60px 1fr;gap:12px}
+  .row p{grid-column:1/-1}
+  .row .tag{grid-column:1/-1;text-align:left;margin-top:-4px}
+  .photos{grid-template-columns:1fr 1fr;height:auto}
+  .ph{height:220px}
+  .ph.tall{grid-column:1/-1;height:320px}
+  .split{grid-template-columns:1fr}
+  .split>div{border-right:none;border-bottom:1px solid var(--line);padding:18px 0}
+  .split>div:last-child{padding-left:0;border-bottom:none}
+  .chain{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .wrap{padding:0 18px}
+  .topbar .wrap{height:40px}
+  .topbar span:last-child{display:none}
+  h1{font-size:36px}
+  .lead{font-size:15px}
+  .stat b{font-size:23px}
+  .sec-head h2,.contact h2{font-size:28px}
+  section.block{padding:44px 0}
 }
 </style>
 </head>
@@ -64,7 +111,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 <div class="topbar">
   <div class="wrap">
     <b>FUN 趣选 — 感官测量与匹配</b>
-    <span class="mono">Beijing · Taipei · Singapore</span>
+    <span class="mono">Shanghai · Taipei · Singapore</span>
   </div>
 </div>
 
@@ -72,39 +119,39 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   <div class="wrap">
     <div class="grid">
       <div>
-        <div class="mono">Sensory measurement · Est. 2008</div>
-        <h1>把风味<br>变成<em>可比较</em><br>的数据</h1>
-        <p class="lead">我们不写"匠心""风土"。我们把一杯咖啡拆成可测量的维度，再用同一套尺子，量人喜欢什么。</p>
+        <div class="mono">Since 2023 · Sensory measurement</div>
+        <h1>人喝。<br>机器量。<br>中国咖啡<em>两者都要</em>。</h1>
+        <p class="lead">2023 年成立于上海。我们把杯测师的判断和仪器的测量放在同一批样品上，让"好"变成可以比较的数据，再让数据回到交易里。</p>
         <div class="links">
-          <a href="#measure">看我们怎么量 →</a>
-          <a href="#match">豆子怎么找到人 →</a>
+          <a href="#method">看方法 →</a>
+          <a href="#case">看 2024 昆山案例 →</a>
         </div>
-        <p class="caption">右图：每个黑点是我们的一个样品批次，横轴酸度、纵轴醇厚度；黄圈是客户偏好区域。匹配，就是把点放进圈里。</p>
+        <p class="caption">右图：2024 昆山 COFAIR，巴西、印尼、埃塞各选三支样品，人评审与 AI 各排一次。巴西、印尼名次一致；埃塞前两名一致，相差 0.9 分。</p>
       </div>
       <div>
-        <svg class="plot" viewBox="0 0 560 520" role="img" aria-label="风味散点与偏好匹配示意">
+        <svg class="plot" viewBox="0 0 560 520" role="img" aria-label="人机评分对照示意">
           <line class="axis" x1="70" y1="20" x2="70" y2="450"/>
           <line class="axis" x1="70" y1="450" x2="530" y2="450"/>
-          <text x="16" y="30">BODY</text>
-          <text x="470" y="478">ACIDITY</text>
+          <text x="16" y="30">PANEL</text>
+          <text x="452" y="478">AI</text>
           <g stroke="#E7E2D6" stroke-width="1">
             <line x1="70" y1="100" x2="530" y2="100"/><line x1="70" y1="180" x2="530" y2="180"/>
             <line x1="70" y1="260" x2="530" y2="260"/><line x1="70" y1="340" x2="530" y2="340"/>
             <line x1="160" y1="20" x2="160" y2="450"/><line x1="250" y1="20" x2="250" y2="450"/>
             <line x1="340" y1="20" x2="340" y2="450"/><line x1="430" y1="20" x2="430" y2="450"/>
           </g>
-          <circle class="zone" cx="330" cy="150" r="62"/>
-          <circle class="zone" cx="180" cy="320" r="48"/>
-          <circle class="zone" cx="440" cy="300" r="40"/>
+          <line x1="70" y1="450" x2="530" y2="20" stroke="#C9C3B4" stroke-width="1" stroke-dasharray="2 4"/>
+          <circle class="zone" cx="330" cy="150" r="58"/>
+          <circle class="zone" cx="190" cy="330" r="50"/>
+          <circle class="zone" cx="440" cy="270" r="46"/>
           <g class="match">
-            <line x1="330" y1="150" x2="322" y2="138"/><line x1="330" y1="150" x2="352" y2="170"/>
-            <line x1="330" y1="150" x2="300" y2="168"/><line x1="180" y1="320" x2="172" y2="330"/>
-            <line x1="180" y1="320" x2="196" y2="300"/><line x1="440" y1="300" x2="430" y2="312"/>
+            <line x1="330" y1="150" x2="322" y2="138"/><line x1="330" y1="150" x2="352" y2="172"/>
           </g>
           <g>
-            <circle class="dot" cx="322" cy="138" r="2.6"/><circle class="dot" cx="352" cy="170" r="2.6"/>
-            <circle class="dot" cx="300" cy="168" r="2.6"/><circle class="dot" cx="172" cy="330" r="2.6"/>
-            <circle class="dot" cx="196" cy="300" r="2.6"/><circle class="dot" cx="430" cy="312" r="2.6"/>
+            <circle class="dot" cx="322" cy="138" r="3"/><circle class="dot" cx="352" cy="172" r="3"/>
+            <circle class="dot" cx="300" cy="168" r="3"/><circle class="dot" cx="190" cy="330" r="3"/>
+            <circle class="dot" cx="196" cy="300" r="3"/><circle class="dot" cx="440" cy="270" r="3"/>
+            <circle class="dot" cx="430" cy="312" r="3"/>
             <circle class="dot" cx="120" cy="120" r="2.2"/><circle class="dot" cx="150" cy="200" r="2.2"/>
             <circle class="dot" cx="110" cy="260" r="2.2"/><circle class="dot" cx="210" cy="90" r="2.2"/>
             <circle class="dot" cx="240" cy="150" r="2.2"/><circle class="dot" cx="260" cy="220" r="2.2"/>
@@ -119,11 +166,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
             <circle class="dot" cx="380" cy="60" r="2.2"/><circle class="dot" cx="430" cy="130" r="2.2"/>
             <circle class="dot" cx="490" cy="100" r="2.2"/><circle class="dot" cx="510" cy="200" r="2.2"/>
             <circle class="dot" cx="500" cy="320" r="2.2"/><circle class="dot" cx="470" cy="420" r="2.2"/>
-            <circle class="dot" cx="330" cy="200" r="2.2"/><circle class="dot" cx="180" cy="160" r="2.2"/>
           </g>
-          <text class="label" x="344" y="120">match 0.86</text>
-          <text class="label" x="196" y="286">match 0.81</text>
-          <text class="label" x="452" y="288">match 0.74</text>
+          <text class="label" x="346" y="118">ET · 0.9 apart</text>
+          <text class="label" x="204" y="288">BR · same</text>
+          <text class="label" x="452" y="258">ID · same</text>
         </svg>
       </div>
     </div>
@@ -132,45 +178,125 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
 <div class="strip">
   <div class="wrap">
-    <div class="stat"><b>1.836 亿</b><span>2025/26 全球产量（袋）· ICO 2026-09</span></div>
-    <div class="stat"><b>5%</b><span>精品咖啡占比 · 其余是大宗</span></div>
-    <div class="stat"><b>2 套</b><span>评估模型：AI 初筛 + 专家复核</span></div>
-    <div class="stat"><b>18 年</b><span>产区与感官经验</span></div>
+    <div class="stat"><b>2023</b><span>成立于上海</span></div>
+    <div class="stat"><b>3 产地</b><span>巴西 / 印尼 / 埃塞 同台对比</span></div>
+    <div class="stat"><b>0.9 分</b><span>埃塞前两名，人机最大差距</span></div>
+    <div class="stat"><b>5 步</b><span>人 → 仪器 → 校准 → 解读 → 交易</span></div>
   </div>
 </div>
 
-<section class="block" id="measure">
+<section class="block" id="method">
   <div class="wrap">
     <div class="sec-head">
-      <div class="mono">01 / Measure</div>
-      <h2>先定义"好"，再谈别的</h2>
+      <div class="mono">01 / Method</div>
+      <h2>方法不绑定任何一台仪器</h2>
     </div>
     <div class="rows">
-      <div class="row"><div class="num">M-01</div><h3>感官维度</h3><p>酸、甜、苦、醇厚，各 0–10 分；风味标签按 SCA 轮盘，不下"好喝"这种结论。</p><div class="tag">SOURCE: SCA / CQI</div></div>
-      <div class="row"><div class="num">M-02</div><h3>双模型校准</h3><p>AI 先给出评分与画像，专家复核差异；差异本身就是数据。</p><div class="tag">METHOD: DUAL-MODEL</div></div>
-      <div class="row"><div class="num">M-03</div><h3>可追溯</h3><p>每份报告挂批次号与检测日期；没有依据的数字不写。</p><div class="tag">POLICY: NO UNTRACED DATA</div></div>
+      <div class="row"><div class="num">M-01</div><h3>人的感官</h3><p>受训杯测师逐支打分，按 CQI / SCA 体系记录风味与缺陷。</p><div class="tag">PANEL</div></div>
+      <div class="row"><div class="num">M-02</div><h3>仪器测量</h3><p>同一批样品由合作方仪器扫描，得到可复算的读数。</p><div class="tag">INSTRUMENT</div></div>
+      <div class="row"><div class="num">M-03</div><h3>校准与训练</h3><p>人和仪器用共享样品互相校验，差异本身作为数据保留。</p><div class="tag">CALIBRATION</div></div>
+      <div class="row"><div class="num">M-04</div><h3>解读</h3><p>两套结果合成一个判断，写进买家看得懂的报告。</p><div class="tag">INTERPRETATION</div></div>
+      <div class="row"><div class="num">M-05</div><h3>商业使用</h3><p>判断随咖啡进入真实交易，每一单留下可回溯的记录。</p><div class="tag">TRADE</div></div>
     </div>
   </div>
 </section>
 
-<section class="block" id="match">
+<section class="block" id="case">
   <div class="wrap">
     <div class="sec-head">
-      <div class="mono">02 / Match</div>
-      <h2>豆子找到人，人找到豆子</h2>
+      <div class="mono">02 / Case</div>
+      <h2>2024 昆山：人机同台</h2>
     </div>
-    <div class="rows">
-      <div class="row"><div class="num">X-01</div><h3>豆子侧</h3><p>每个批次有风味向量、价格带、库存与交付期；像不像别人，用距离算，不靠形容词。</p><div class="tag">OBJECT: LOT</div></div>
-      <div class="row"><div class="num">X-02</div><h3>人侧</h3><p>每个客户有偏好向量与场景；同意范围内的数据才进入匹配。</p><div class="tag">OBJECT: CUSTOMER</div></div>
-      <div class="row"><div class="num">X-03</div><h3>匹配</h3><p>硬约束过滤，再算相似度，最后给一句可解释的理由。</p><div class="tag">RULE: FILTER → RANK → EXPLAIN</div></div>
+    <table class="case">
+      <thead><tr><th>产地</th><th>人评审</th><th>AI 测量</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>巴西</td><td>三支排序</td><td>三支排序</td><td class="same">名次一致</td></tr>
+        <tr><td>印尼</td><td>三支排序</td><td>三支排序</td><td class="same">名次一致</td></tr>
+        <tr><td>埃塞</td><td>前二排序</td><td>前二排序</td><td><span class="diff">相差 0.9 分</span></td></tr>
+      </tbody>
+    </table>
+    <p class="note">2024 年昆山咖啡展，三个产地各三支样品，人评审与 AI 各自独立排序。这是方法第一次在公开场合被并排检验。</p>
+  </div>
+</section>
+
+<section class="block" id="origin">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono">03 / Origin</div>
+      <h2>2023，亚的斯亚贝巴</h2>
+    </div>
+    <p class="lead" style="margin-top:18px">2023 年 10 月，受 IWCA 埃塞分会邀请，我们第一次把样品铺在亚的斯亚贝巴的桌上。方法不是从会议室里想出来的，是从这批样品开始的。</p>
+    <div class="photos">
+      <figure class="ph tall"><img src="samples.jpg" alt="2023 年埃塞俄比亚现场收集的咖啡样品"><figcaption>亚的斯亚贝巴 · 2023-10 · 现场收集的样品</figcaption></figure>
+      <figure class="ph"><img src="iwca2023.jpg" alt="2023 年 IWCA 埃塞大会"><figcaption>IWCA 埃塞大会 · 2023-10-16～22 · Skylight Hotel</figcaption></figure>
+      <figure class="ph"><img src="team2023.jpg" alt="2023 年与埃塞合作方"><figcaption>与埃塞合作方 · 2023-10</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="now">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono">04 / Now</div>
+      <h2>现在：云南，一条能回头的链</h2>
+    </div>
+    <div class="chain">
+      <div class="step"><b>01</b><h4>选样</h4><p>云南产区，按批次取样</p></div>
+      <div class="step"><b>02</b><h4>杯测</h4><p>受训杯测师打分</p></div>
+      <div class="step"><b>03</b><h4>扫描</h4><p>仪器读数与画像</p></div>
+      <div class="step"><b>04</b><h4>判定</h4><p>人机对照出报告</p></div>
+      <div class="step"><b>05</b><h4>出口</h4><p>随货进入真实交易</p></div>
+      <div class="step"><b>06</b><h4>反馈</h4><p>买家反馈回写下一批</p></div>
+    </div>
+    <p class="note">每一批都留下记录：产地、批次、感官分、扫描数据、买家反馈。缺少任何一项，这批就不算完成。</p>
+  </div>
+</section>
+
+<section class="block" id="boundary">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mono">05 / Boundary</div>
+      <h2>仪器由伙伴提供，咖啡的判断由我们负责</h2>
+    </div>
+    <div class="split">
+      <div>
+        <h3>技术伙伴</h3>
+        <ul>
+          <li>硬件、光源与扫描设备</li>
+          <li>软件与数据读取</li>
+          <li>设备维护与升级</li>
+        </ul>
+      </div>
+      <div>
+        <h3>FUN 趣选</h3>
+        <ul>
+          <li>样品、杯测与感官训练</li>
+          <li>人机校准与差异解读</li>
+          <li>报告、交易与买家反馈</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">方法设计成可以跑在不同仪器上，结果因此可以跨设备比较。我们不卖仪器，也不绑定任何一家。</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="mono">06 / Contact</div>
+    <h2>带一批样品来，<br>我们把两边都跑一遍。</h2>
+    <p>检测与报告、感官培训、贸易匹配，三类需求走同一个入口。</p>
+    <div class="cl">
+      <span><b>邮箱</b> hello@funschoice.org</span>
+      <span><b>城市</b> 上海 · 台北 · 新加坡</span>
+      <span><b>成立</b> 2023</span>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 FUN 趣选 · FCIA</span>
-    <span class="mono">CONCEPT V0.2 · 2026-11-12 · NOT FINAL</span>
+    <span>© 2026 FUN 趣选 · Fun's Choice International Alliance</span>
+    <span class="mono">Concept V0.2 · 2026-11-12</span>
   </div>
 </footer>
 </body>
